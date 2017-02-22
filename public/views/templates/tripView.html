@@ -1,0 +1,47 @@
+<!-- Trip view -->
+
+
+<!-- Destinations listed -->
+<body ng-app="backPackedApp" >
+  <a href="#" ng-click="auth.logout()" >Logout</a>
+    <main class="container">
+    <!-- ng-controller="tripController as tripCtrl" -->
+
+      <h1>Destinations</h1>
+      <!-- Submit a destination -->
+      <section id="destinationSubmission" class="row">
+        <h2>Add a Stop</h2>
+        <form id="destinationAddForm">
+          <div class="row">
+            <div class="three columns">
+              <label for="currentDestinationName">Destination:</label>
+              <input type="text" id="currentDestinationName" name="destinationName" ng-model="tripCtrl.destinationName"/>
+            </div>
+
+            <div class="nine columns">
+              <button ng-click="tripCtrl.destinationAdder(tripCtrl.destinationName)">Add</button>
+            </div>
+
+          </div>
+        </form>
+      </section>
+      <!-- See submitted destinations -->
+      <section id="destinations" class="row">
+        <h2>Destinations</h2>
+        <div id="destinationList" ng-repeat="destination in tripCtrl.destinationList">
+          <div class="destination row">
+            <div class="three columns">
+              <label for="destinationName">Destination Name:</label>
+              <input ng-model="destination.destinationName" type="text" id="destinationName" name="destinationName" />
+            </div>
+
+            <div class="nine columns">
+
+              <button ng-click="tripCtrl.destinationUpdater(destination)" class="update">Update</button>
+              <button ng-click="tripCtrl.destinationRemover(destination)" class="delete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>

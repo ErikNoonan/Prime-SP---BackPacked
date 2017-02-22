@@ -1,0 +1,20 @@
+<!-- Consider this the main view -->
+<h1>BackPacked</h1>
+
+<!-- Shown for users that are NOT logged in -->
+<section ng-hide="auth.loggedIn">
+<p>“The world is a book, and those who do not travel read only one page.” – Saint Augustine</p>
+<p>Please login to see yours</p>
+
+  <!-- I got this button image from Googles sign-in button brand guidelines page -->
+  <a href= "/auth/google" target="_self"><img src="/public/assets/btn_google_signin_dark_normal_web.png" /></a>
+</section>
+<!-- Shown for users that are logged in -->
+<section ng-show="auth.loggedIn">
+  <p>
+    You are logged in!
+  </p>
+  <ul>
+    <li><a href="#destination">Add a destination</a></li>
+  </ul>
+</section>

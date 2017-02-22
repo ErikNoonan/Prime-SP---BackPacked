@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>BackPacked</title>
+    <script src="/public/vendors/angular.min.js"></script>
+    <script src="/public/vendors/angular-route.min.js"></script>
+    <script src="/public/scripts/app.js"></script>
+    <script src="/public/scripts/services/authFactory.js"></script>
+    <!-- <script src="/public/scripts/authService.js"></script> -->
+    <script src="/public/scripts/controllers/navController.js"></script>
+    <script src="/public/scripts/controllers/authController.js"></script>
+    <script src="/public/scripts/controllers/navListController.js"></script>
+    <script src="/public/scripts/controllers/tripController.js"></script>
+    <script src="/public/scripts/services/destination.service.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/public/vendors/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/public/vendors/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="/public/vendors/mystyle.css" />
+  </head>
+  <body>
+    <!-- Bring in the Angular app -->
+    <main class="container" ng-app="backPacked">
+      <!-- NavController is on every page -->
+      <!-- <header ng-controller="NavController as nav"> -->
+
+        <nav>
+          <ul class="row">
+            <li class="two columns" ng-show="nav.displayLogout"><a href="#home">Home</a></li>
+            <li class="two columns" ng-show="nav.displayLogout"><a href="#destinations">Go to Destinations</a></li>
+            <li class="six columns" ng-show="nav.displayLogout">Hi {{nav.username}}! | <a href="#" ng-click="nav.logout()">Logout</a></li>
+          </ul>
+        </nav>
+
+        <!-- Show a helpful message when needed -->
+
+      <!-- </header> -->
+      <!-- Pull in views via ngRoutes here -->
+      <ng-view></ng-view>
+
+
+      <div id='footer' ng-controller="NavController as nav">
+        <nav>
+        <ul class="row">
+          <section id="message" class="nav.message.type" ng-show="nav.message.text">
+            {{nav.message.text}}
+          </section>
+          <li class="two columns" ng-show="nav.displayLogout"><a href="/navList">Home</a></li>
+          <li><a href="#" ng-click="auth.logout()" >Logout</a></li>
+        </ul>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>

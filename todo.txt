@@ -1,0 +1,42 @@
+destinationService
+  Lodging and travel:
+    []]get
+    []put
+    []pull
+  To-Dos
+    []get
+    []put
+    []pull
+    []delete
+
+destinationController
+  Lodging and travel:
+    []get
+    []put
+    []pull
+  To-Dos
+    []get
+    []put
+    []pull
+    []delete
+
+Routes
+  []service connects to route, route connects to model
+
+Models
+  []Schema - should this be for everything or does it need one for trips and one for each destination
+  []Three tables: user, destination (trip id, and unique destination id)
+  []user
+  [x]destination travel + lodging
+
+
+Server.js
+  []check if destination name is in use, prevent new from being created if true
+
+Navigation
+  []on login, redirect to tripView.html
+  []Trip view has button to log out
+  []Destination views have a button to return to trip view and a button to log out
+
+
+html -> controller -> service -> server -> (routes) -> DB -> back to html through all the rest of the steps

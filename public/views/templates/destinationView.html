@@ -1,0 +1,144 @@
+<!-- Lodging info
+
+Travel info
+
+Travel info
+
+Eat, Do, See -->
+
+
+
+<!-- lodging -->
+
+<body ng-app="backPackedApp">
+    <main class="container" ng-controller="tripController as destCtrl">
+        <h1>Destination Name Here</h1>
+        <!-- Submit lodging info -->
+        <section id="lodgingDetails" class="row">
+            <p>Lodging</p>
+            <form id="lodgingForm">
+                <div class="row">
+                    <div class="three columns">
+                        <label for="lodgingName">Name:</label>
+                        <input type="text" id="lodging" name="lodgingName" ng-model="destCtrl.destination.lodgingName" placeholder="Hostel Name" />
+                        <label for="lodgingAddress">Address:</label>
+                        <input type="text" id="lodging" name="lodgingAddress" ng-model="destCtrl.destination.lodgingAddress" placeholder="Hostel Address" />
+                        <label for="lodgingBookedFrom">From:</label>
+                        <input type="date" id="lodging" name="lodgingFrom" ng-model="destCtrl.destination.lodgingFrom" />
+                        <label for="lodgingBookedTo">To:</label>
+                        <input type="date" id="lodging" name="lodgingTo" ng-model="destCtrl.destination.lodgingTo" />
+                        <label for="lodgingResNumber">Reservation Number:</label>
+                        <input type="text" id="lodging" name="lodgingResNum" ng-model="destCtrl.destination.lodgingResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
+                        <label for="lodgingNote">Note:</label>
+                        <input type="text" id="lodging" name="lodgingNote" ng-model="destCtrl.destination.lodgingNote" placeholder="Remember to..." />
+
+
+                    </div>
+
+                    <div class="nine columns">
+                        <button ng-click="destCtrl.lodgingAndTravelAdder(destCtrl.destination)">Add</button>
+
+                            <button ng-click="destCtrl.lodgingUpdater(destCtrl.destination)" class="update">Update</button>
+                    </div>
+
+                </div>
+            </form>
+        </section>
+        <!-- submit transportation info -->
+        <section id="travelDetails" class="row">
+            <p>Travel</p>
+            <form id="travelToForm">
+                <div class="row">
+                    <div class="three columns">
+                        <label for="arrival">How you're arriving:</label>
+                        <input type="text" id="arrival" name="arrivalHow" ng-model="destCtrl.destination.arrivalHow" />
+                        <label for="arrivalAddress">Where:</label>
+                        <input type="text" id="arrival" name="arrivalWhere" ng-model="destCtrl.destination.arrivalWhere" placeholder="Airport / Train Station" />
+                        <label for="arrivalTime">Arrival Time:</label>
+                        <input type="time" id="arrival" name="arrivalTime" ng-model="destCtrl.destination.arrivalTime" />
+                        <label for="arrivalResNumber">Reservation Number:</label>
+                        <input type="text" id="arrival" name="arrivalResNum" ng-model="destCtrl.destination.arrivalResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
+
+                        <label for="departure">How you're departing:</label>
+                        <input type="text" id="departure" name="departureHow" ng-model="destCtrl.destination.departureHow" placeholder="eg: Train from..."/>
+                        <label for="departureAddress">Where:</label>
+                        <input type="text" id="departure" name="departureWhere" ng-model="destCtrl.destination.departureWhere" placeholder="Airport / Train Station" />
+                        <label for="departureTime">Departure Time:</label>
+                        <input type="time" id="departure" name="departureTime" ng-model="destCtrl.destination.departureTime" />
+                        <label for="departureResNumber">Reservation Number:</label>
+                        <input type="text" id="departure" name="departureResNum" ng-model="destCtrl.destination.departureResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
+
+                    </div>
+
+                </div>
+
+                </div>
+
+
+                <div class="nine columns">
+                    <button ng-click="destCtrl.lodgingAndTravelAdder(destCtrl.destination)">Add</button>
+
+                        <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination)" class="update">Update</button>
+                </div>
+
+                </div>
+            </form>
+        </section>
+
+        <!-- Submit a to-do -->
+        <section id="todoSubmission" class="row">
+            <p>Add To-Do</p>
+            <form id="toDoAddForm">
+                <div class="row">
+                    <div class="three columns">
+                        <label for="currentToDoName">What:</label>
+                        <input type="text" id="currentToDo" name="toDoName" ng-model="destCtrl.toDoName" placeholder="eg: Eiffel Tower" />
+                        <label for="currentToDoLocation">Where:</label>
+                        <input type="text" id="currentToDo" name="toDoLocation" ng-model="destCtrl.toDoLocation" placeholder="Address or area of city" />
+                        <label for="currentToDoCost">Cost Estimate:</label>
+                        <input type="text" id="currentToDo" name="toDoCost" ng-model="destCtrl.toDoCost" placeholder="eg: ~$15-$20" />
+                        <label for="currentToDoTime">Time Estimate:</label>
+                        <input type="text" id="currentToDo" name="toDoTime" ng-model="destCtrl.toDoTime" placeholder="eg: 2-4hrs" />
+                        <label for="currentToDoNote">Note:</label>
+                        <input type="text" id="currentToDo" name="toDoNote" ng-model="destCtrl.toDoNote" placeholder="Reminder to arrive early..." />
+
+                    </div>
+
+                    <div class="nine columns">
+                        <button ng-click="destCtrl.toDoAdder(destCtrl.toDoName, destCtrl.toDoLocation,destCtrl.toDoCost, destCtrl.toDoTime,
+              destCtrl.toDoNote)">Add</button>
+                    </div>
+
+                </div>
+            </form>
+        </section>
+        <!-- See submitted to-dos -->
+        <section id="toDos" class="row">
+            <p>To-Do:</p>
+            <div id="toDoList">
+                <div class="toDos row">
+                    <div class="three columns">
+                        <label for="toDosName"></label>
+                        <input ng-model="toDo.toDoName" type="text" id="toDoName" name="toDoName" />
+                        <ul>
+                            <li><label for="toDoLocation"></label>
+                                <input ng-model="toDo.toDoLocation" type="text" id="toDoLocation" name="toDoLocation" /></li>
+                            <li><label for="toDoCost"></label>
+                                <input ng-model="toDo.toDoCost" type="text" id="toDoCost" name="toDoCost" /></li>
+                            <li><label for="toDoTime"></label>
+                                <input ng-model="toDo.toDoTime" type="text" id="toDoTime" name="toDoTime" /></li>
+                            <li><label for="toDoNote"></label>
+                                <input ng-model="toDo.toDoNote" type="text" id="toDoNote" name="toDoNote" /></li>
+                        </ul>
+                    </div>
+
+                    <div class="nine columns">
+
+                        <button ng-click="destCtrl.toDoUpdater(destination)" class="update">Update</button>
+                        <button ng-click="destCtrl.toDoRemover(destination)" class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
