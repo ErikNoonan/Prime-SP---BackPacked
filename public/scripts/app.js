@@ -32,12 +32,12 @@ backPackedApp.config(['$routeProvider', '$locationProvider', function ($routePro
     .when('/dest', {
       templateUrl: '/public/views/templates/destinationView.html',
       controller: 'tripController',
-      controllerAs: 'dest',
+      controllerAs: 'destCtrl',
     })
     .when('/trip', {
       templateUrl: '/public/views/templates/tripView.html',
       controller: 'tripController',
-      controllerAs: 'trip',
+      controllerAs: 'tripCtrl',
     })
     .otherwise({
       redirectTo: '/navList',

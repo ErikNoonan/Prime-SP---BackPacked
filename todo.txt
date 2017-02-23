@@ -1,27 +1,17 @@
-destinationService
-  Lodging and travel:
-    []]get
-    []put
-    []pull
-  To-Dos
-    []get
-    []put
-    []pull
-    []delete
+tripView
+  [x]add destinations
+  [x]have destinations added to list
+  []list of destinations are links to corresponding destination view
+  []ability to delete a destination (and corresponding view and db file)
 
-destinationController
-  Lodging and travel:
-    []get
-    []put
-    []pull
-  To-Dos
-    []get
-    []put
-    []pull
-    []delete
 
-Routes
-  []service connects to route, route connects to model
+
+destinationView
+  [x]add info to DB object based on destinationName
+  []have db info display on load
+  []have db info update when update button is clicked
+  []toDo functionality working
+
 
 Models
   []Schema - should this be for everything or does it need one for trips and one for each destination
@@ -38,5 +28,12 @@ Navigation
   []Trip view has button to log out
   []Destination views have a button to return to trip view and a button to log out
 
-
+Notes:
 html -> controller -> service -> server -> (routes) -> DB -> back to html through all the rest of the steps
+
+Get request runs on page load and on button press
+
+QUESTIONS:
+//Do I need more than one GET request in service file? One for grabbing all 'destinationName's and one for grabbing all destination info
+
+//

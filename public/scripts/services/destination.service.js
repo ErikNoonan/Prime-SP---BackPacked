@@ -1,28 +1,18 @@
-// destinationService
-//   Lodging:
-//     []]get
-//     []put
-//     []pull
-//   Travel:
-//     []get
-//     []put
-//     []pull
-//   To-Dos
-//     []get
-//     []put
-//     []pull
-//     []delete
-
 backPackedApp.service('destinationService', function($http) {
 
-    this.searchDestinations = function() {
-        return $http.get('/destination').then(function(response) {
-            console.log('Got response from DB', response);
-            return response;
-        }).catch(function(err) {
-            console.log('Error getting data from DB', err);
-        });
-    };
+  this.searchDestinations = function() {
+      return $http({
+        method: 'GET',
+        url: '/destination',
+        data: {}
+      }).then(function(response) {
+          console.log('Got response from DB', response);
+          return response;
+      }).catch(function(err) {
+          console.log('Error getting data from DB', err);
+      });
+  };
+
     // lodging and travel services
     //create
     this.destinationAdder = function (destinationName){
@@ -41,7 +31,7 @@ backPackedApp.service('destinationService', function($http) {
     }
 
 
-    this.lodgingAndTravelAdder = function(destinationInfo) {
+    this.lodgingAndTravelUpdater = function(destinationInfo) {
       console.log(destinationInfo);
         return $http({
             method: 'PUT',
@@ -56,19 +46,19 @@ backPackedApp.service('destinationService', function($http) {
         });
     };
 
-    //update
-    this.updateLodgingAndTravel = function(destinationInfo) {
-        return $http({
-            method: 'PUT',
-            url: '/destination/' + destination._id,
-            data: destinationInfo
-        }).then(function(response) {
-            console.log('Got response from DB', response);
-            return response;
-        }).catch(function(err) {
-            console.log('Error updating', err);
-        });
-    };
+    // //update
+    // this.updateLodgingAndTravel = function(destinationInfo) {
+    //     return $http({
+    //         method: 'PUT',
+    //         url: '/destination/' + destination._id,
+    //         data: destinationInfo
+    //     }).then(function(response) {
+    //         console.log('Got response from DB', response);
+    //         return response;
+    //     }).catch(function(err) {
+    //         console.log('Error updating', err);
+    //     });
+    // };
 
     this.deleteLodgingAndTravel = function(destinationInfo) {
         return $http({

@@ -28,19 +28,22 @@
       <!-- See submitted destinations -->
       <section id="destinations" class="row">
         <h2>Destinations</h2>
-        <div id="destinationList" ng-repeat="destination in tripCtrl.destinationList">
-          <div class="destination row">
-            <div class="three columns">
-              <label for="destinationName">Destination Name:</label>
-              <input ng-model="destination.destinationName" type="text" id="destinationName" name="destinationName" />
-            </div>
+        <div id="destinationList" >
+          <ul ng-repeat="destinations in tripCtrl.destinationsList">
+            <li>
+              <button type="destination" name="button for {{destinations.destinationName}}" ng-click="">{{destinations.destinationName}}</button>
+              <!-- <div class="three columns">
+                <label for="destinationName"></label>
+                <input ng-model="destination.destinationName" type="text" id="destinationName" name="destinationName" />
+              </div> -->
+            </li>
 
-            <div class="nine columns">
+                <!-- <button ng-click="tripCtrl.destinationUpdater(destination)" class="update">Update</button>
+                <button ng-click="tripCtrl.destinationRemover(destination)" class="delete">Delete</button> -->
 
-              <button ng-click="tripCtrl.destinationUpdater(destination)" class="update">Update</button>
-              <button ng-click="tripCtrl.destinationRemover(destination)" class="delete">Delete</button>
-            </div>
-          </div>
+
+          </ul>
+
         </div>
       </section>
     </main>

@@ -14,10 +14,12 @@ var Destination = require('./models/destination');
 
 /** ---------- EXPRESS APP CONFIG ---------- **/
 var app = express();
-app.use('/public', express.static('public'));  // serve files from public
+app.use('/public', express.static('public')); // serve files from public
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 /** ---------- DATABASE CONNECTION HANDLING ---------- **/
 database();
 /** ---------- SESSION CREATION AND STORAGE ---------- **/
@@ -28,11 +30,14 @@ database();
  * @see {@link https://www.npmjs.com/package/express-session}
  */
 app.use(session({
-  secret: configs.sessionVars.secret,
-  key: 'user',
-  resave: 'true',
-  saveUninitialized: false,
-  cookie: { maxage: 60000, secure: false },
+    secret: configs.sessionVars.secret,
+    key: 'user',
+    resave: 'true',
+    saveUninitialized: false,
+    cookie: {
+        maxage: 60000,
+        secure: false
+    },
 }));
 /** ---------- PASSPORT ---------- **/
 app.use(passport.initialize()); // kickstart passport
@@ -47,52 +52,67 @@ app.use('/private', isLoggedIn, private);
 app.use('/login', index);
 app.use('/', isLoggedIn, index);
 
-app.get('/loginStatus', function(req, res){
-  res.send(req.isAuthenticated());
+app.get('/loginStatus', function(req, res) {
+    res.send(req.isAuthenticated());
 });
 
-app.post('/destination', function(req, res){
-  var user = req.user;
-  var destName = req.body.destinationName;
-  destName = destName.toString();
-  var destination = new Destination({googleId: req.user._id, destinationName: destName});
-  destination.save(function (err){
-    if (err) {
-      console.log('Error saving', err);
-      res.sendStatus(500);
-      return;
-    }
+app.post('/destination', function(req, res) {
+    var user = req.user;
+    var destName = req.body.destinationName;
+    destName = destName.toString();
+    var destination = new Destination({
+        googleId: req.user._id,
+        destinationName: destName
+    });
+    destination.save(function(err) {
+        if (err) {
+            console.log('Error saving', err);
+            res.sendStatus(500);
+            return;
+        }
+    })
+});
 
-  })
-})
+app.get('/destination', function(req, res) {
+    Destination.find({}, function(err, destination) {
+        if (err) {
+            res.sendStatus(500);
+            return;
+        }
+        res.send(destination);
+    });
+});
 
-app.put('/destination', function(req, res){
-  console.log(req.body);
-  var query = { destinationName: req.body.destinationName };
 
-  Destination.update(query, {
-    destinationName: req.body.destinationName,
-    lodgingName: req.body.lodgingName,
-    lodgingAddress: req.body.lodgingAddress,
-    lodgingFrom: req.body.lodgingFrom,
-    lodgingTo: req.body.lodgingTo,
-    lodgingResNum: req.body.lodgingResNum,
-    lodgingNote: req.body.lodgingNote,
-    arrivalHow: req.body.arrivalHow,
-    arrivalWhere: req.body.arrivalWhere,
-    arrivalTime: req.body.arrivalTime,
-    arrivalResNum: req.body.arrivalResNum,
-    departureHow: req.body.departureHow,
-    departureWhere: req.body.departureWhere,
-    departureTime: req.body.departureTime,
-    departureResNum: req.body.departureResNum
-  }, function(err, response){
-    if (err) {
-      console.log('Error saving', err);
-      res.sendStatus(500);
-      return;
+app.put('/destination', function(req, res) {
+    console.log(req.body);
+    var query = {
+        destinationName: req.body.destinationName
     };
-  });
+
+    Destination.update(query, {
+        destinationName: req.body.destinationName,
+        lodgingName: req.body.lodgingName,
+        lodgingAddress: req.body.lodgingAddress,
+        lodgingFrom: req.body.lodgingFrom,
+        lodgingTo: req.body.lodgingTo,
+        lodgingResNum: req.body.lodgingResNum,
+        lodgingNote: req.body.lodgingNote,
+        arrivalHow: req.body.arrivalHow,
+        arrivalWhere: req.body.arrivalWhere,
+        arrivalTime: req.body.arrivalTime,
+        arrivalResNum: req.body.arrivalResNum,
+        departureHow: req.body.departureHow,
+        departureWhere: req.body.departureWhere,
+        departureTime: req.body.departureTime,
+        departureResNum: req.body.departureResNum
+    }, function(err, response) {
+        if (err) {
+            console.log('Error saving', err);
+            res.sendStatus(500);
+            return;
+        };
+    });
 });
 
 
@@ -102,6 +122,6 @@ app.use('/*', isLoggedIn, index);
 
 
 /** ---------- SERVER START ---------- **/
-app.listen(3000, function () {
-  console.log('Now running on port ', 3000);
+app.listen(3000, function() {
+    console.log('Now running on port ', 3000);
 });
