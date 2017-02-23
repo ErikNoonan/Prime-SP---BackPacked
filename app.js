@@ -66,6 +66,38 @@ app.post('/destination', function(req, res){
   })
 })
 
+app.put('/destination', function(req, res){
+  console.log(req.body);
+  var query = { destinationName: req.body.destinationName };
+
+  Destination.update(query, {
+    destinationName: req.body.destinationName,
+    lodgingName: req.body.lodgingName,
+    lodgingAddress: req.body.lodgingAddress,
+    lodgingFrom: req.body.lodgingFrom,
+    lodgingTo: req.body.lodgingTo,
+    lodgingResNum: req.body.lodgingResNum,
+    lodgingNote: req.body.lodgingNote,
+    arrivalHow: req.body.arrivalHow,
+    arrivalWhere: req.body.arrivalWhere,
+    arrivalTime: req.body.arrivalTime,
+    arrivalResNum: req.body.arrivalResNum,
+    departureHow: req.body.departureHow,
+    departureWhere: req.body.departureWhere,
+    departureTime: req.body.departureTime,
+    departureResNum: req.body.departureResNum
+  }, function(err, response){
+    if (err) {
+      console.log('Error saving', err);
+      res.sendStatus(500);
+      return;
+    };
+  });
+});
+
+
+
+
 app.use('/*', isLoggedIn, index);
 
 

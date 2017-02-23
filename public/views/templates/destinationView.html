@@ -14,10 +14,16 @@ Eat, Do, See -->
     <main class="container" ng-controller="tripController as destCtrl">
         <h1>Destination Name Here</h1>
         <!-- Submit lodging info -->
+
+
         <section id="lodgingDetails" class="row">
             <p>Lodging</p>
+
             <form id="lodgingForm">
                 <div class="row">
+                  <label for="destinationName">{{destCtrl.destination.destinationName}}</label>
+                  <input type="text" id="destination" name="destinationName" ng-model="destCtrl.destination.destinationName" />
+
                     <div class="three columns">
                         <label for="lodgingName">Name:</label>
                         <input type="text" id="lodging" name="lodgingName" ng-model="destCtrl.destination.lodgingName" placeholder="Hostel Name" />

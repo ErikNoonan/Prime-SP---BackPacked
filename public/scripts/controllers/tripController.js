@@ -31,27 +31,24 @@ backPackedApp.controller('tripController', function (destinationService, AuthFac
 
   _this.getDestinations();
 
-  _this.destinationAdder = function (destinationName){
-    // var destinationEntered = {
-    //   destination: destinationName
-    // };
+  _this.destinationAdder = function (destinationName){ //adds new destination to DB
     destinationService.destinationAdder(destinationName).then(function(response){
     console.log(destinationName);
-    // $http.post('/destinationAdd', destinationEntered)
+
   });
   };
 
 
-  _this.destinationDeleter = function (destinationName){
-    console.log(destinationName);
-    var destinationEntered = {destination: destinationName};
-    $http.delete('/destinationAdd', destinationEntered)
-  };
+  // _this.destinationDeleter = function (destinationName){
+  //   console.log(destinationName);
+  //   var destinationEntered = {destination: destinationName};
+  //   $http.delete('/destinationAdd', destinationEntered)
+  // };
 
 
   _this.lodgingAndTravelAdder = function (destinationInfo){
     destinationService.lodgingAndTravelAdder(destinationInfo).then(function(response){
-      console.log(response);
-    })
+      console.log(response); //how do I attach this to the DB object with the correct destinationName?
+    });
   }
 });

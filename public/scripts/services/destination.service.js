@@ -42,6 +42,7 @@ backPackedApp.service('destinationService', function($http) {
 
 
     this.lodgingAndTravelAdder = function(destinationInfo) {
+      console.log(destinationInfo);
         return $http({
             method: 'PUT',
             url: '/destination',
