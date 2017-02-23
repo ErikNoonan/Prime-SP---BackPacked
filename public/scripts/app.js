@@ -29,7 +29,7 @@ backPackedApp.config(['$routeProvider', '$locationProvider', function ($routePro
       controller: 'AuthController',
       controllerAs: 'auth',
     })
-    .when('/dest', {
+    .when('/dest/:ID', {
       templateUrl: '/public/views/templates/destinationView.html',
       controller: 'tripController',
       controllerAs: 'destCtrl',

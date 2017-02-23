@@ -3,7 +3,7 @@ backPackedApp.service('destinationService', function($http) {
   this.searchDestinations = function() {
       return $http({
         method: 'GET',
-        url: '/destination',
+        url: '/dest',
         data: {}
       }).then(function(response) {
           console.log('Got response from DB', response);
@@ -46,32 +46,32 @@ backPackedApp.service('destinationService', function($http) {
         });
     };
 
-    // //update
-    // this.updateLodgingAndTravel = function(destinationInfo) {
-    //     return $http({
-    //         method: 'PUT',
-    //         url: '/destination/' + destination._id,
-    //         data: destinationInfo
-    //     }).then(function(response) {
-    //         console.log('Got response from DB', response);
-    //         return response;
-    //     }).catch(function(err) {
-    //         console.log('Error updating', err);
-    //     });
-    // };
-
-    this.deleteLodgingAndTravel = function(destinationInfo) {
+    //load specific
+    this.grabSpecificLodgingAndTravel = function(destinationInfo) {
         return $http({
-            method: 'DELETE',
-            url: '/destination/' + destination._id,
+            method: 'GET',
+            url: '/destination',
             data: destinationInfo
         }).then(function(response) {
-            console.log('Ready to remove: ', response);
+            console.log('Got response from DB', response);
             return response;
         }).catch(function(err) {
-            console.log('Error deleting', err);
+            console.log('Error updating', err);
         });
     };
+    //
+    // this.deleteLodgingAndTravel = function(destinationInfo) {
+    //     return $http({
+    //         method: 'DELETE',
+    //         url: '/destination/' + destination.destinationName,
+    //         data: destinationInfo
+    //     }).then(function(response) {
+    //         console.log('Ready to remove: ', response);
+    //         return response;
+    //     }).catch(function(err) {
+    //         console.log('Error deleting', err);
+    //     });
+    // };
     // end lodging and travel services
 
 

@@ -1,7 +1,10 @@
-backPackedApp.controller('tripController', function(destinationService, AuthFactory, $http, $window) {
+backPackedApp.controller('tripController', function(destinationService, AuthFactory, $http, $window, $routeParams, $location, $scope) {
+
     console.log('loaded tripController');
+    console.log($routeParams.ID);
     var _this = this;
     var authFactory = AuthFactory;
+    var currentDestinationName = $routeParams.ID;
 
     _this.destinationsList = [];
     // var Destination = require('../models/destination');
@@ -22,10 +25,9 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
                 });
     };
 
-    _this.getDestinations = function() {
+    _this.getDestinations = function() {//get request for list of destinations in tripView
         destinationService.searchDestinations().then(function(response) {
             _this.destinationsList = response.data;
-
         });
     };
 
@@ -38,6 +40,7 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
         _this.getDestinations();
     };
 
+    _this.grabSpecificLodgingAndTravel = function() ///////<---------- THIS IS WHERE I LEFT OFF
 
     // _this.destinationDeleter = function (destinationName){
     //   console.log(destinationName);
@@ -46,13 +49,17 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
     // };
 
 
-    _this.lodgingAndTravelUpdater = function(destinationInfo) {
+    _this.lodgingAndTravelUpdater = function(destinationInfo) { // updates db with new info from form fields on destinationView
         destinationService.lodgingAndTravelUpdater(destinationInfo).then(function(response) {
             console.log(response);
         });
         _this.getDestinations();
     }
 
+    $scope.setRoute = function(route) {
+      console.log('Route Fired: ', route);
+      $location.path(route);
+    }
 
 
 });

@@ -10,7 +10,7 @@ destinationView
   [x]add info to DB object based on destinationName
   []have db info display on load
   []have db info update when update button is clicked
-  []toDo functionality working
+  []toDo functionality working potentially as a new view?
 
 
 Models
@@ -34,6 +34,13 @@ html -> controller -> service -> server -> (routes) -> DB -> back to html throug
 Get request runs on page load and on button press
 
 QUESTIONS:
-//Do I need more than one GET request in service file? One for grabbing all 'destinationName's and one for grabbing all destination info
+//ng-click will be ng-click from navList with get request function pull {{destinations.destinationName}} as param and key
+// http://stackoverflow.com/questions/33068511/passing-parameter-with-ngroute
+
 
 //
+
+
+Last thing I was working on:
+//client side get request in controller that takes in var currentDestinationName
+as a req.param and grabs corresponding info from DB via grabSpecificLodgingAndTravel function

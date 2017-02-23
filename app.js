@@ -73,7 +73,7 @@ app.post('/destination', function(req, res) {
     })
 });
 
-app.get('/destination', function(req, res) {
+app.get('/dest', function(req, res) {
     Destination.find({}, function(err, destination) {
         if (err) {
             res.sendStatus(500);
@@ -81,8 +81,24 @@ app.get('/destination', function(req, res) {
         }
         res.send(destination);
     });
-});
+}); //for getting list of destinations from DB
 
+
+
+app.get('/destination', function(req, res) {
+  console.log(req.body);
+  var query = {
+      destinationName: req.body.destinationName
+  };
+
+    Destination.find(query, {}, function(err, destination) {
+        if (err) {
+            res.sendStatus(500);
+            return;
+        }
+        res.send(destination);
+    });
+}); // for getting info for specific destination from DB to fill form fields
 
 app.put('/destination', function(req, res) {
     console.log(req.body);
@@ -113,7 +129,7 @@ app.put('/destination', function(req, res) {
             return;
         };
     });
-});
+}); // for updating based on changes to form fields
 
 
 

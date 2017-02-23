@@ -31,7 +31,8 @@
         <div id="destinationList" >
           <ul ng-repeat="destinations in tripCtrl.destinationsList">
             <li>
-              <button type="destination" name="button for {{destinations.destinationName}}" ng-click="">{{destinations.destinationName}}</button>
+              <button type="destination" name="button for {{destinations.destinationName}}"
+              ng-click="setRoute('/dest/'+destinations.destinationName)">{{destinations.destinationName}}</button>
               <!-- <div class="three columns">
                 <label for="destinationName"></label>
                 <input ng-model="destination.destinationName" type="text" id="destinationName" name="destinationName" />
