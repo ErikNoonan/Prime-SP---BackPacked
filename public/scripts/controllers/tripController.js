@@ -1,10 +1,11 @@
 backPackedApp.controller('tripController', function(destinationService, AuthFactory, $http, $window, $routeParams, $location, $scope) {
 
     console.log('loaded tripController');
-    console.log($routeParams.ID);
+    console.log("name1: ", $routeParams.ID);
     var _this = this;
     var authFactory = AuthFactory;
     var currentDestinationName = $routeParams.ID;
+    console.log("name1: ", currentDestinationName);
 
     _this.destinationsList = [];
     // var Destination = require('../models/destination');
@@ -33,6 +34,9 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
 
     _this.getDestinations();
 
+    // $scope.setRoute();
+
+
     _this.destinationAdder = function(destinationName) { //adds new destination to DB
         destinationService.destinationAdder(destinationName).then(function(response) {
             console.log(destinationName);
@@ -40,7 +44,15 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
         _this.getDestinations();
     };
 
-    _this.grabSpecificLodgingAndTravel = function() ///////<---------- THIS IS WHERE I LEFT OFF
+    _this.grabSpecificLodgingAndTravel = function(currentDestinationName){ //for pulling up specific info related to the view the user has been brought to
+
+        destinationService.grabSpecificLodgingAndTravel(currentDestinationName).then(function(response){
+          console.log(currentDestinationName);
+        });
+        // _this.lodgingAndTravelUpdater();
+    };
+
+    _this.grabSpecificLodgingAndTravel(currentDestinationName);
 
     // _this.destinationDeleter = function (destinationName){
     //   console.log(destinationName);
@@ -56,9 +68,12 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
         _this.getDestinations();
     }
 
-    $scope.setRoute = function(route) {
+    $scope.setRoute = function(route) { // changes view to destination specific view based on which button is clicked
       console.log('Route Fired: ', route);
       $location.path(route);
+      // var currentDestinationName =
+      // console.log('current destination name: ', currentDestinationName );
+      //   _this.grabSpecificLodgingAndTravel(currentDestinationName);
     }
 
 

@@ -6,7 +6,7 @@ backPackedApp.service('destinationService', function($http) {
         url: '/dest',
         data: {}
       }).then(function(response) {
-          console.log('Got response from DB', response);
+          // console.log('Got response from DB', response);
           return response;
       }).catch(function(err) {
           console.log('Error getting data from DB', err);
@@ -47,11 +47,10 @@ backPackedApp.service('destinationService', function($http) {
     };
 
     //load specific
-    this.grabSpecificLodgingAndTravel = function(destinationInfo) {
+    this.grabSpecificLodgingAndTravel = function(destinationName) {
         return $http({
             method: 'GET',
-            url: '/destination',
-            data: destinationInfo
+            url: '/destination/' + destinationName,
         }).then(function(response) {
             console.log('Got response from DB', response);
             return response;

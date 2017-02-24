@@ -12,17 +12,20 @@ Eat, Do, See -->
 
 <body ng-app="backPackedApp">
     <main class="container" >
-        <h1>Destination Name Here</h1>
-        <!-- Submit lodging info -->
 
+        <!-- Submit lodging info -->
+        <div name="destinationNameDiv">
+          <label for="destinationName">{{destCtrl.destination.destinationName}}</label>
+          <input type="text" id="destination" name="destinationName" ng-model="destCtrl.destination.destinationName" />
+        </div>
 
         <section id="lodgingDetails" class="row">
             <p>Lodging</p>
 
             <form id="lodgingForm">
                 <div class="row">
-                  <label for="destinationName">{{destCtrl.destination.destinationName}}</label>
-                  <input type="text" id="destination" name="destinationName" ng-model="destCtrl.destination.destinationName" />
+                  <!-- <label for="destinationName">{{destCtrl.destination.destinationName}}</label>
+                  <input type="text" id="destination" name="destinationName" ng-model="destCtrl.destination.destinationName" /> -->
 
                     <div class="three columns">
                         <label for="lodgingName">Name:</label>
@@ -92,7 +95,7 @@ Eat, Do, See -->
         </section>
 
         <!-- Submit a to-do -->
-        <section id="todoSubmission" class="row">
+        <!-- <section id="todoSubmission" class="row">
             <p>Add To-Do</p>
             <form id="toDoAddForm">
                 <div class="row">
@@ -117,9 +120,9 @@ Eat, Do, See -->
 
                 </div>
             </form>
-        </section>
+        </section> -->
         <!-- See submitted to-dos -->
-        <section id="toDos" class="row">
+        <!-- <section id="toDos" class="row">
             <p>To-Do:</p>
             <div id="toDoList">
                 <div class="toDos row">
@@ -145,6 +148,6 @@ Eat, Do, See -->
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
 </body>

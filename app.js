@@ -85,10 +85,10 @@ app.get('/dest', function(req, res) {
 
 
 
-app.get('/destination', function(req, res) {
-  console.log(req.body);
+app.get('/destination/:destinationName', function(req, res) {
+  console.log('This is working', req.params);
   var query = {
-      destinationName: req.body.destinationName
+      destinationName: req.params.destinationName
   };
 
     Destination.find(query, {}, function(err, destination) {
@@ -99,6 +99,8 @@ app.get('/destination', function(req, res) {
         res.send(destination);
     });
 }); // for getting info for specific destination from DB to fill form fields
+
+
 
 app.put('/destination', function(req, res) {
     console.log(req.body);
