@@ -11,12 +11,12 @@ Eat, Do, See -->
 <!-- lodging -->
 
 <body ng-app="backPackedApp">
-    <main class="container" >
+    <main class="container">
 
         <!-- Submit lodging info -->
         <div name="destinationNameDiv">
-          <label for="destinationName">{{destCtrl.destination.destinationName}}</label>
-          <input type="text" id="destination" name="destinationName" ng-model="destCtrl.destination.destinationName" />
+          <label for="destinationName">{{destCtrl.info.destinationName}}</label>
+          <input type="text" id="destination" name="destinationName" ng-model="destCtrl.destination[0].destinationName" />
         </div>
 
         <section id="lodgingDetails" class="row">
@@ -29,23 +29,23 @@ Eat, Do, See -->
 
                     <div class="three columns">
                         <label for="lodgingName">Name:</label>
-                        <input type="text" id="lodging" name="lodgingName" ng-model="destCtrl.destination.lodgingName" placeholder="Hostel Name" />
+                        <input type="text" id="lodging" name="lodgingName" ng-model="destCtrl.destination[0].lodgingName" placeholder="Hostel Name" />
                         <label for="lodgingAddress">Address:</label>
-                        <input type="text" id="lodging" name="lodgingAddress" ng-model="destCtrl.destination.lodgingAddress" placeholder="Hostel Address" />
+                        <input type="text" id="lodging" name="lodgingAddress" ng-model="destCtrl.destination[0].lodgingAddress" placeholder="Hostel Address" />
                         <label for="lodgingBookedFrom">From:</label>
-                        <input type="date" id="lodging" name="lodgingFrom" ng-model="destCtrl.destination.lodgingFrom" />
+                        <input type="date" id="lodging" name="lodgingFrom" ng-model="destCtrl.destination[0].lodgingFrom" />
                         <label for="lodgingBookedTo">To:</label>
-                        <input type="date" id="lodging" name="lodgingTo" ng-model="destCtrl.destination.lodgingTo" />
+                        <input type="date" id="lodging" name="lodgingTo" ng-model="destCtrl.destination[0].lodgingTo" />
                         <label for="lodgingResNumber">Reservation Number:</label>
-                        <input type="text" id="lodging" name="lodgingResNum" ng-model="destCtrl.destination.lodgingResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
+                        <input type="text" id="lodging" name="lodgingResNum" ng-model="destCtrl.destination[0].lodgingResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
                         <label for="lodgingNote">Note:</label>
-                        <input type="text" id="lodging" name="lodgingNote" ng-model="destCtrl.destination.lodgingNote" placeholder="Remember to..." />
+                        <input type="text" id="lodging" name="lodgingNote" ng-model="destCtrl.destination[0].lodgingNote" placeholder="Remember to..." />
 
 
                     </div>
 
                     <div class="nine columns">
-                        <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination)">Update</button>
+                        <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination[0])">Update</button>
 
                             <!-- <button ng-click="destCtrl.lodgingUpdater(destCtrl.destination)" class="update">Update</button> -->
                     </div>
@@ -60,22 +60,22 @@ Eat, Do, See -->
                 <div class="row">
                     <div class="three columns">
                         <label for="arrival">How you're arriving:</label>
-                        <input type="text" id="arrival" name="arrivalHow" ng-model="destCtrl.destination.arrivalHow" />
+                        <input type="text" id="arrival" name="arrivalHow" ng-model="destCtrl.destination[0].arrivalHow" />
                         <label for="arrivalAddress">Where:</label>
-                        <input type="text" id="arrival" name="arrivalWhere" ng-model="destCtrl.destination.arrivalWhere" placeholder="Airport / Train Station" />
+                        <input type="text" id="arrival" name="arrivalWhere" ng-model="destCtrl.destination[0].arrivalWhere" placeholder="Airport / Train Station" />
                         <label for="arrivalTime">Arrival Time:</label>
-                        <input type="time" id="arrival" name="arrivalTime" ng-model="destCtrl.destination.arrivalTime" />
+                        <input type="time" id="arrival" name="arrivalTime" ng-model="destCtrl.destination[0].arrivalTime" />
                         <label for="arrivalResNumber">Reservation Number:</label>
-                        <input type="text" id="arrival" name="arrivalResNum" ng-model="destCtrl.destination.arrivalResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
+                        <input type="text" id="arrival" name="arrivalResNum" ng-model="destCtrl.destination[0].arrivalResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
 
                         <label for="departure">How you're departing:</label>
-                        <input type="text" id="departure" name="departureHow" ng-model="destCtrl.destination.departureHow" placeholder="eg: Train from..."/>
+                        <input type="text" id="departure" name="departureHow" ng-model="destCtrl.destination[0].departureHow" placeholder="eg: Train from..."/>
                         <label for="departureAddress">Where:</label>
-                        <input type="text" id="departure" name="departureWhere" ng-model="destCtrl.destination.departureWhere" placeholder="Airport / Train Station" />
+                        <input type="text" id="departure" name="departureWhere" ng-model="destCtrl.destination[0].departureWhere" placeholder="Airport / Train Station" />
                         <label for="departureTime">Departure Time:</label>
-                        <input type="time" id="departure" name="departureTime" ng-model="destCtrl.destination.departureTime" />
+                        <input type="time" id="departure" name="departureTime" ng-model="destCtrl.destination[0].departureTime" />
                         <label for="departureResNumber">Reservation Number:</label>
-                        <input type="text" id="departure" name="departureResNum" ng-model="destCtrl.destination.departureResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
+                        <input type="text" id="departure" name="departureResNum" ng-model="destCtrl.destination[0].departureResNum" placeholder="xxxxxxxxxxxxxxxxxx" />
 
                     </div>
 
@@ -85,9 +85,9 @@ Eat, Do, See -->
 
 
                 <div class="nine columns">
-                    <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination)">Add</button>
+                    <!-- <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination)">Add</button> -->
 
-                        <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination)" class="update">Update</button>
+                        <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination[0])" class="update">Update</button>
                 </div>
 
                 </div>
