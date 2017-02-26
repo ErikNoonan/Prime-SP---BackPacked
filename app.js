@@ -125,7 +125,8 @@ app.put('/destination', function(req, res) {
         departureHow: req.body.departureHow,
         departureWhere: req.body.departureWhere,
         departureTime: req.body.departureTime,
-        departureResNum: req.body.departureResNum
+        departureResNum: req.body.departureResNum,
+        toDos: req.body.toDos
     }, function(err, response) {
         if (err) {
             console.log('Error saving', err);

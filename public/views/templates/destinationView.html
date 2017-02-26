@@ -45,7 +45,7 @@ Eat, Do, See -->
                     </div>
 
                     <div class="nine columns">
-                        <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination[0])">Update</button>
+                        <button ng-click="destCtrl.destinationInfoUpdater(destCtrl.destination[0])">Update</button>
 
                             <!-- <button ng-click="destCtrl.lodgingUpdater(destCtrl.destination)" class="update">Update</button> -->
                     </div>
@@ -85,15 +85,32 @@ Eat, Do, See -->
 
 
                 <div class="nine columns">
-                    <!-- <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination)">Add</button> -->
+                    <!-- <button ng-click="destCtrl.destinationInfoUpdater(destCtrl.destination)">Add</button> -->
 
-                        <button ng-click="destCtrl.lodgingAndTravelUpdater(destCtrl.destination[0])" class="update">Update</button>
+                        <button ng-click="destCtrl.destinationInfoUpdater(destCtrl.destination[0])" class="update">Update</button>
                 </div>
 
                 </div>
             </form>
         </section>
 
+
+        <section>
+          <label for="toDoWhat">What's something you want to do here?</label>
+          <input ng-model="destCtrl.newToDo.toDoWhat">
+
+          <button ng-click="destCtrl.addNewToDo()" class="update">Update</button>
+        </section>
+
+        <section class="toDos">
+          {{destCtrl.destination[0].toDos}}
+          <div id="toDoList">
+            <ul ng-repeat="toDo in destCtrl.destination[0].toDos">
+              <li><input ng-model="toDo.toDoWhat"></li>
+
+            </ul>
+          </div>
+        </section>
         <!-- Submit a to-do -->
         <!-- <section id="todoSubmission" class="row">
             <p>Add To-Do</p>

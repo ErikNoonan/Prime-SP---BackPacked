@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var toDoSchema = require('./toDo').schema;
 
 var destinationSchema = mongoose.Schema({
   googleId: {type: String, required: true},
@@ -17,6 +18,7 @@ var destinationSchema = mongoose.Schema({
   departureWhere: String,
   departureTime: Date,
   departureResNum: String,
+  toDos: [toDoSchema]
 });
 
 module.exports = mongoose.model('destination', destinationSchema);

@@ -31,7 +31,7 @@ backPackedApp.service('destinationService', function($http) {
     }
 
 
-    this.lodgingAndTravelUpdater = function(destinationInfo) {
+    this.destinationInfoUpdater = function(destinationInfo) {
       console.log(destinationInfo);
         return $http({
             method: 'PUT',
@@ -47,7 +47,7 @@ backPackedApp.service('destinationService', function($http) {
     };
 
     //load specific
-    this.grabSpecificLodgingAndTravel = function(destinationName) {
+    this.grabSpecificDestinationInfo = function(destinationName) {
         return $http({
             method: 'GET',
             url: '/destination/' + destinationName,

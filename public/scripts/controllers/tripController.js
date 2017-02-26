@@ -10,7 +10,7 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
     _this.destinationsList = [];
     // var Destination = require('../models/destination');
 
-    _this.destination = []; // array for holding object passed back from DB with grabSpecificLodgingAndTravel
+    _this.destination = []; // array for holding object passed back from DB with grabSpecificDestinationInfo
 
     _this.loggedIn = authFactory.checkLoggedIn(); // NOTE: only updated on page load
 
@@ -47,9 +47,9 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
         });
     };
 
-    _this.grabSpecificLodgingAndTravel = function(currentDestinationName){ //for pulling up specific info related to the view the user has been brought to
+    _this.grabSpecificDestinationInfo = function(currentDestinationName){ //for pulling up specific info related to the view the user has been brought to
 
-        destinationService.grabSpecificLodgingAndTravel(currentDestinationName).then(function(response){
+        destinationService.grabSpecificDestinationInfo(currentDestinationName).then(function(response){
 
           console.log(currentDestinationName);
           _this.destination = response.data;
@@ -58,7 +58,7 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
 
     };
 
-    _this.grabSpecificLodgingAndTravel(currentDestinationName);
+    _this.grabSpecificDestinationInfo(currentDestinationName);
 
     // _this.destinationDeleter = function (destinationName){
     //   console.log(destinationName);
@@ -67,11 +67,10 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
     // };
 
 
-    _this.lodgingAndTravelUpdater = function(destinationInfo) { // updates db with new info from form fields on destinationView
-        destinationService.lodgingAndTravelUpdater(destinationInfo).then(function(response) {
+    _this.destinationInfoUpdater = function(destinationInfo) { // updates db with new info from form fields on destinationView
+        destinationService.destinationInfoUpdater(destinationInfo).then(function(response) {
             console.log(response);
         });
-        _this.getDestinations();
     }
 
     $scope.setRoute = function(route) { // changes view to destination specific view based on which button is clicked
@@ -79,8 +78,14 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
       $location.path(route);
       // var currentDestinationName =
       // console.log('current destination name: ', currentDestinationName );
-      //   _this.grabSpecificLodgingAndTravel(currentDestinationName);
+      //   _this.grabSpecificDestinationInfo(currentDestinationName);
     }
 
+
+    _this.addNewToDo = function(){
+      _this.destination[0].toDos.push(_this.newToDo);
+      _this.destinationInfoUpdater(_this.destination[0]);
+      _this.newToDo={};
+    }
 
 });
