@@ -2,14 +2,15 @@
 
 
 <!-- Destinations listed -->
-<body ng-app="backPackedApp" >
-  <a href="#" ng-click="auth.logout()" >Logout</a>
-    <main class="container">
-    <!-- ng-controller="tripController as tripCtrl" -->
 
-      <h1>Destinations</h1>
-      <!-- Submit a destination -->
-      <section id="destinationSubmission" class="row">
+<body ng-app="backPackedApp">
+    <a href="#" ng-click="auth.logout()">Logout</a>
+    <main class="container">
+        <!-- ng-controller="tripController as tripCtrl" -->
+
+
+        <!-- Submit a destination -->
+        <!-- <section id="destinationSubmission" class="row">
         <h2>Add a Stop</h2>
         <form id="destinationAddForm">
           <div class="row">
@@ -24,28 +25,38 @@
 
           </div>
         </form>
-      </section>
-      <!-- See submitted destinations -->
-      <section id="destinations" class="row">
-        <h2>Destinations</h2>
-        <div id="destinationList" >
-          <ul ng-repeat="destinations in tripCtrl.destinationsList">
-            <li>
-              <button type="destination" name="button for {{destinations.destinationName}}"
-              ng-click="setRoute('/dest/'+destinations.destinationName)">{{destinations.destinationName}}</button>
-              <!-- <div class="three columns">
-                <label for="destinationName"></label>
-                <input ng-model="destination.destinationName" type="text" id="destinationName" name="destinationName" />
-              </div> -->
-            </li>
+      </section> -->
+        <!-- See submitted destinations -->
+        <section id="destinations" class="row">
+            <h2>Destinations</h2>
 
-                <!-- <button ng-click="tripCtrl.destinationUpdater(destination)" class="update">Update</button>
-                <button ng-click="tripCtrl.destinationRemover(destination)" class="delete">Delete</button> -->
+<div class="destination-cards col-sm-4">
+  <div class="panel panel-primary text-center">
+      <div class="panel-body">
+        <img ng-src="http://placehold.it/320x180/?text=new+destination" alt="New Destination text image">
+        <p>
+          <input type="text" class="form-control" id="currentDestinationName" name="destinationName" ng-model="tripCtrl.destinationName"  />
+          </p>
+          <button class= "btn btn-primary" ng-click="tripCtrl.destinationAdder(tripCtrl.destinationName)">Add this Stop</button>
+      </div>
+  </div>
+</div>
 
 
-          </ul>
+<div class="destination-cards col-sm-4">
+            <div class="panel panel-primary text-center" ng-repeat="destinations in tripCtrl.destinationsList">
+                <div class="panel-body">
+                    <img ng-src="https://source.unsplash.com/320x180/?{{destinations.destinationName}}" alt="Random picture from {{destinations.destinationName}}">
+                    <p>{{destinations.destinationName}}</p>
+                    <button class="btn btn-primary" ng-click="setRoute('/dest/'+destinations.destinationName)">
+                      Show your {{destinations.destinationName}} Info
+                    </button>
+                </div>
+            </div>
 
-        </div>
-      </section>
+</div>
+
+            <!-- </div> -->
+        </section>
     </main>
-  </body>
+</body>
