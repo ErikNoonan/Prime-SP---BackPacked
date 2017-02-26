@@ -30,10 +30,10 @@
         <section id="destinations" class="row">
             <h2>Destinations</h2>
 
-<div class="destination-cards col-sm-4">
-  <div class="panel panel-primary text-center">
+<div class="destination-cards">
+  <div class="panel panel-primary col-sm-4 text-center">
       <div class="panel-body">
-        <img ng-src="http://placehold.it/320x180/?text=new+destination" alt="New Destination text image">
+        <img ng-src="http://placehold.it/320x165/?text=new+destination" alt="New Destination text image">
         <p>
           <input type="text" class="form-control" id="currentDestinationName" name="destinationName" ng-model="tripCtrl.destinationName"  />
           </p>
@@ -43,8 +43,8 @@
 </div>
 
 
-<div class="destination-cards col-sm-4">
-            <div class="panel panel-primary text-center" ng-repeat="destinations in tripCtrl.destinationsList">
+<div class="destination-cards">
+            <div class="panel panel-primary col-sm-4 text-center" ng-repeat="destinations in tripCtrl.destinationsList">
                 <div class="panel-body">
                     <img ng-src="https://source.unsplash.com/320x180/?{{destinations.destinationName}}" alt="Random picture from {{destinations.destinationName}}">
                     <p>{{destinations.destinationName}}</p>
