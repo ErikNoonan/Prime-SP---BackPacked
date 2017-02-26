@@ -1,20 +1,23 @@
 tripView
   [x]add destinations
   [x]have destinations added to list
-  []list of destinations are links to corresponding destination view
-  []ability to delete a destination (and corresponding view and db file)
+  [x]list of destinations are links to corresponding destination view
+  []prevent multiple destinations with the same name from being entered (sweet alert)
+  []ability to delete a destination (and corresponding view and db file
+  []
 
 
 
 destinationView
   [x]add info to DB object based on destinationName
-  []have db info display on load
-  []have db info update when update button is clicked
+  [x]have db info display on load
+  [x]have db info update when update button is clicked
   []toDo functionality working potentially as a new view?
+  []
 
 
 Models
-  []Schema - should this be for everything or does it need one for trips and one for each destination
+  []Schema
   []Three tables: user, destination (trip id, and unique destination id)
   []user
   [x]destination travel + lodging

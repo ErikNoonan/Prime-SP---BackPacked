@@ -43,8 +43,8 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
     _this.destinationAdder = function(destinationName) { //adds new destination to DB
         destinationService.destinationAdder(destinationName).then(function(response) {
             console.log(destinationName);
+            _this.getDestinations();
         });
-        _this.getDestinations();
     };
 
     _this.grabSpecificLodgingAndTravel = function(currentDestinationName){ //for pulling up specific info related to the view the user has been brought to
@@ -54,27 +54,8 @@ backPackedApp.controller('tripController', function(destinationService, AuthFact
           console.log(currentDestinationName);
           _this.destination = response.data;
           console.log(response.data);
-
-
-
-          // _this.destination.destinationName = response.data.destinationName,
-          // _this.destination.lodgingName = response.data.lodgingName,
-          // _this.destination.lodgingAddress = response.data.lodgingAddress,
-          // _this.destination.lodgingFrom = response.data.lodgingFrom,
-          // _this.destination.lodgingTo = response.data.lodgingTo,
-          // _this.destination.lodgingResNum = response.data.lodgingResNum,
-          // _this.destination.lodgingNote = response.data.lodgingNote,
-          // _this.destination.arrivalHow = response.data.arrivalHow,
-          // _this.destination.arrivalWhere = response.data.arrivalWhere,
-          // _this.destination.arrivalTime = response.data.arrivalTime,
-          // _this.destination.arrivalResNum = response.data.arrivalResNum,
-          // _this.destination.departureHow = response.data.departureHow,
-          // _this.destination.departureWhere = response.data.departureWhere,
-          // _this.destination.departureTime = response.data.departureTime,
-          // _this.destination.departureResNum = response.data.departureResNum
-
         });
-        // _this.lodgingAndTravelUpdater();
+
     };
 
     _this.grabSpecificLodgingAndTravel(currentDestinationName);

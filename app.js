@@ -69,8 +69,10 @@ app.post('/destination', function(req, res) {
             console.log('Error saving', err);
             res.sendStatus(500);
             return;
+        } else {
+          res.sendStatus(200);
         }
-    })
+    });
 });
 
 app.get('/dest', function(req, res) {
