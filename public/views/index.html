@@ -13,11 +13,12 @@
     <script src="/public/scripts/controllers/navListController.js"></script>
     <script src="/public/scripts/controllers/tripController.js"></script>
     <script src="/public/scripts/services/destination.service.js"></script>
+    <script src="/public/vendors/dist/js/bootstrap.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/public/vendors/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/public/vendors/dist/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/public/vendors/mystyle.css" />
-    <!-- <link rel="stylesheet" href="/public/styles/styles.css" /> -->
+    <link rel="stylesheet" href="/public/styles/styles.css" />
   </head>
   <body>
     <!-- Bring in the Angular app -->
@@ -39,7 +40,7 @@
       <!-- Pull in views via ngRoutes here -->
       <ng-view></ng-view>
 
-
+<!--
       <div id='footer' ng-controller="NavController as nav">
         <nav>
         <ul class="row">
@@ -50,7 +51,7 @@
           <li><a href="#" ng-click="auth.logout()" >Logout</a></li>
         </ul>
         </nav>
-      </div>
+      </div> -->
     </main>
   </body>
 </html>

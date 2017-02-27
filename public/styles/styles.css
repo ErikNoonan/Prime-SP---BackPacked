@@ -1,3 +1,39 @@
 .destination-cards {
   padding: 25px;
 }
+
+
+#destinationName {
+  font-size: 30px;
+
+}
+
+#update-button {
+  width: 100%;
+}
+
+
+#title {
+
+padding: 5px;
+  background-color: lightskyblue;
+  font-size: 25px;
+  color: white;
+  height: 50px;
+
+
+}
+
+#destinationName {
+  background-color: darkblue;
+  color: goldenrod;
+}
+
+#todo-entry {
+  /*height: 100px;*/
+  padding: 25px;
+}
+
+#toDoList {
+  padding: 25px;
+}
