@@ -28,7 +28,7 @@
       </section> -->
         <!-- See submitted destinations -->
         <section id="destinations" class="row">
-            <h2>Destinations</h2>
+            <h2 id="destinationName">Your Trip</h2>
 
 <div class="destination-cards">
   <div class="panel panel-primary col-sm-4 text-center">
@@ -46,10 +46,12 @@
 <div class="destination-cards">
             <div class="panel panel-primary col-sm-4 text-center" ng-repeat="destinations in tripCtrl.destinationsList">
                 <div class="panel-body">
+                  <h3>{{destinations.destinationName}}</h3>
                     <img ng-src="https://source.unsplash.com/320x180/?{{destinations.destinationName}}" alt="Random picture from {{destinations.destinationName}}">
-                    <p>{{destinations.destinationName}}</p>
+                    <a href="http://www.lonelyplanet.com/search?q={{destinations.destinationName}}" target="_blank">Find More Info About {{destinations.destinationName}}</a>
+
                     <button class="btn btn-primary" ng-click="setRoute('/dest/'+destinations.destinationName)">
-                      Show Trip Info for {{destinations.destinationName}}
+                      Show Your Trip Info for {{destinations.destinationName}}
                     </button>
                 </div>
             </div>

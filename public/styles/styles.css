@@ -37,3 +37,9 @@ padding: 5px;
 #toDoList {
   padding: 25px;
 }
+
+#login-page {
+  padding: 70px 0;
+ border: 3px solid green;
+ text-align: center;
+}
